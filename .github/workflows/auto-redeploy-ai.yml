@@ -1,0 +1,14 @@
+name: Auto Redeploy Ai Service
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # runs every hour (UTC)
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render Deploy
+        run: |
+          curl -X POST https://api.render.com/deploy/srv-d4g2aimfu37c739m80u0?key=ukzj8FMO5Cs
